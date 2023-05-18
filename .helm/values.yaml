@@ -1,0 +1,25 @@
+# This is a YAML-formatted file.
+
+image: 
+  repository: gitlab.s056569.edu.slurm.io:5050/s056569/application
+  tag: main.16
+imagePullSecret: cicd-gitlab-registry
+
+# Resources for app. Limits is the maximum number of resources that app cas use.
+# And requests is resources that will be granted to the app at start time.
+replicas: 1
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+service:
+  app_port: 5001
+  port: 80
+
+ingress:
+  host: flask.s056569.edu.slurm.io
